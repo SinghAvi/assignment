@@ -4,7 +4,7 @@ class RolesController < ApplicationController
   # GET /roles
   # GET /roles.json
   def index
-    @roles = Role.all
+    @roles = Role.paginate(page: params[:page], per_page: 1)
   end
 
   # GET /roles/1
