@@ -26,6 +26,16 @@
     <%= form.text_field :email, value: form.object.email %>
   </div>
 
+  <div>
+    <%= form.label :roles, "Roles *" %>
+    <%= form.select :role_ids, Role.all.collect {|p| [p.title, p.id] }, {include_blank: 'None'}%>
+  </div>
+
+  <div>
+    <%= form.label :Image %>
+    <%= form.file_field :avatar, direct_upload: true, value: form.object.avatar %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
