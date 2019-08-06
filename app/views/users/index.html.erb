@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Users</h1>
+  <div class="row">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td> <%= user.try(:first_name) %> </td>
+            <td> <%= user.try(:last_name) %> </td>
+            <td> <%= user.try(:email) %> </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <%= will_paginate @users, list_classes: %w(pagination justify-content-end) %>
+<br>
+
+<%= link_to 'New User', new_user_path %>
